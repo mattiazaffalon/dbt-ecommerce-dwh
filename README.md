@@ -1,5 +1,6 @@
 # dbt-ecommerce-dwh
 
+## Dimensional model
 fact_orders:
  - order_id (PK)
  - order_num
