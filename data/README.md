@@ -37,3 +37,12 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python data_generator.py
 ```
+
+## Copy to Google cloud storage
+```bash
+gsutil cp ./generated/billing_orders_d_*.csv gs://dbt-ecommerce-raw/billing_orders
+
+gsutil cp ./generated/customers_d_*.csv gs://dbt-ecommerce-raw/customers/
+
+gsutil cp ./generated/products_f_*.csv gs://dbt-ecommerce-raw/products/
+```
