@@ -28,28 +28,28 @@ resource "google_bigquery_dataset" "dataset" {
   }
 }
 
-resource "google_storage_bucket" "dbt-ecommerce-source" {
-  name          = "dbt-ecommerce-source"
+resource "google_storage_bucket" "dbt-ecommerce-raw" {
+  name          = "dbt-ecommerce-raw"
   location      = var.region
   force_destroy = true
 
   uniform_bucket_level_access = true
 }
 
-resource "google_service_account" "dev-local" {
-  account_id   = "dev-local"
+resource "google_service_account" "ecomm-dev-local" {
+  account_id   = "ecomm-dev-local"
   display_name = "SA to be used to launch pipeline from the local environment"
 }
 
 resource "google_project_iam_member" "bigquery_editor" {
   project = var.project_id
   role    = "roles/bigquery.admin"
-  member  = "serviceAccount:${google_service_account.dev-local.email}"
+  member  = "serviceAccount:${google_service_account.ecomm-dev-local.email}"
 }
 
 resource "google_project_iam_member" "storage_admin" {
   project = var.project_id
   role    = "roles/storage.admin"
-  member  = "serviceAccount:${google_service_account.dev-local.email}"
+  member  = "serviceAccount:${google_service_account.ecomm-dev-local.email}"
 }
 
