@@ -21,3 +21,13 @@ pip install -r requirements.txt
 ```
 dbt deps
 ```
+
+## Create external tables
+```bash
+dbt run-operation stage_external_sources
+```
+
+## Command to put in container
+```bash
+dbt run-operation stage_external_sources && dbt snapshot && dbt run
+```

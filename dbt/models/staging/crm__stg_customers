@@ -1,9 +1,0 @@
-{{ config(materialized='table') }}
-
-with 
-
-raw as (
-    SELECT p.*, _file_name as report_file_name FROM {{ source('dbt_ecommerce', 'raw_customers') }} e
-)
-
-select * from raw

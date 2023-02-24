@@ -47,7 +47,7 @@ def _generate_products(howmany: int, refdate: datetime.date):
     unit_price = [round(random.uniform(10, 1000), 2) for i in range(howmany)]
 
     dateseed = datetime.datetime(refdate.year, refdate.month, refdate.day, 0, 0, 0)
-    created_at = [dateseed + datetime.timedelta(seconds=random.randrange(86400)) for i in range(howmany)]
+    updated_at = [dateseed + datetime.timedelta(seconds=random.randrange(86400)) for i in range(howmany)]
 
     # Creazione del dataframe per la tabella products_catalog
     products_catalog = pd.DataFrame({
@@ -56,10 +56,10 @@ def _generate_products(howmany: int, refdate: datetime.date):
         'description': description,
         'category': category,
         'unit_price': unit_price,
-        'created_at': created_at
+        'updated_at': updated_at
     })
 
-    _write_csv(products_catalog, 'products_f', refdate)
+    _write_csv(products_catalog, 'products_d', refdate)
 
 def _generate_billing_orders(howmany: int, refdate: datetime.date):
     order_num = [i+1 for i in range(howmany)]

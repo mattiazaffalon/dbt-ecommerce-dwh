@@ -30,7 +30,7 @@ products_catalog_f_yyyyMMdd.csv:
  - unit_price
 
 
-## Launch
+## Generating seed sample files
 ```bash
 python -m venv .venv
 source .venv/bin/activate
@@ -39,10 +39,20 @@ python data_generator.py
 ```
 
 ## Copy to Google cloud storage
+(optional)
 ```bash
-gsutil cp ./generated/billing_orders_d_*.csv gs://dbt-ecommerce-raw/billing_orders
+gsutil -m rm -r gs://dbt-ecommerce-raw/*
+```
 
+```bash
+gsutil cp ./generated/billing_orders_d_*.csv gs://dbt-ecommerce-raw/billing_orders/
 gsutil cp ./generated/customers_d_*.csv gs://dbt-ecommerce-raw/customers/
-
 gsutil cp ./generated/products_f_*.csv gs://dbt-ecommerce-raw/products/
+
+```
+
+(optional) see contents
+
+```bash
+gsutil ls gs://dbt-ecommerce-raw/**/*
 ```

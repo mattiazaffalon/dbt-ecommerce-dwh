@@ -13,8 +13,6 @@ sources:
         columns:
           - name: order_num
             data_type: int64
-          - name: datetime #TODO: correct the generator to output datetimes instead of dates
-            data_type: datetime
           - name: customer_cd
             data_type: int64
           - name: product_cd
@@ -22,11 +20,13 @@ sources:
           - name: unit_price
             data_type: numeric
           - name: quantity
-            data_type: int32
+            data_type: int64
           - name: discount
             data_type: numeric
           - name: total_amount
             data_type: numeric
+          - name: created_at
+            data_type: datetime
       - name: raw_customers
         external:
           location: "gs://dbt-ecommerce-raw/customers/*.csv"
@@ -53,6 +53,8 @@ sources:
             data_type: string
           - name: email
             data_type: string
+          - name: updated_at
+            data_type: datetime
       - name: raw_products
         external:
           location: "gs://dbt-ecommerce-raw/products/*.csv"
@@ -71,3 +73,5 @@ sources:
             data_type: string
           - name: unit_price
             data_type: numeric
+          - name: updated_at
+            data_type: datetime
