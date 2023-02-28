@@ -29,4 +29,4 @@ USER root
 RUN dbt deps
 RUN dbt debug --target=$TARGET
 
-ENTRYPOINT ["/bin/sh", "-c", "dbt deps && dbt run-operation stage_external_sources && dbt snapshot && dbt run"]
+ENTRYPOINT ["/bin/sh", "-c", "dbt deps && dbt run-operation stage_external_sources && dbt snapshot && dbt run && dbt test"]
