@@ -1,0 +1,10 @@
+dbt_ecommerce_dwh:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('BQ_PROJECT_ID') }}"
+      dataset: "{{ env_var('BQ_DATASET') }}"
+      location: "{{ env_var('BQ_LOCATION') }}"
+      threads: 4

@@ -1,0 +1,6 @@
+Dockerfile
+.venv/
+./dbt_packages
+./logs
+./target
+./build
