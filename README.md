@@ -40,3 +40,9 @@ dim_time:
  - hour
  - minute
  - second
+
+
+
+
+sudo docker run -t -d --name dbt dbt-ecommerce-dwh:latest
+sudo docker exec -it dbt /bin/bash
