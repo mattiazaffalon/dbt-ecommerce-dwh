@@ -1,6 +1,9 @@
 Dockerfile
 .venv/
-./dbt_packages
-./logs
-./target
-./build
+dbt_packages
+logs
+target
+build
+data
+README.md
+requirements.txt

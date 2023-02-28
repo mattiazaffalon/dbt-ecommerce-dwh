@@ -60,6 +60,7 @@ source .venv/bin/activate
 pip install --upgrade pip
 
 pip install --upgrade setuptools
+pip install --upgrade wheel
 
 ```
 
@@ -80,5 +81,8 @@ dbt run-operation stage_external_sources
 
 ## Command to put in container
 ```bash
-dbt run-operation stage_external_sources && dbt snapshot && dbt run
+dbt run-operation stage_external_sources && \
+    dbt snapshot && \
+    dbt run \
+    dbt test
 ```
