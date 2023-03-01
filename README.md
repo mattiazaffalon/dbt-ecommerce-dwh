@@ -50,7 +50,7 @@ sudo docker run -t -d --name dbt dbt-ecommerce-dwh:latest
 sudo docker exec -it dbt /bin/bash
 
 ## Static solution diagram:
-![Diagram](https://github.com/mattiazaffalon/dbt-ecommerce-dwh/blob/docs/Solution%20diagram.drawio)
+![Static solution diagram](./Solution%20diagram.drawio.png "a title")
 
 ## How to prepare your virtual environment to make sure you are working with python >= 3.8
 
