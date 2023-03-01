@@ -1,88 +1,111 @@
 # dbt-ecommerce-dwh
 
-## Dimensional model
-fact_orders:
- - order_id (PK)
- - order_num
- - time_id
- - customer_id
- - product_id
- - unit_price
- - quantity
- - discount
- - total_amount
+## DWH ER model
+```mermaid
+erDiagram
+    fact_orders ||--|{ dim_customers: "from customer"
+    fact_orders {
+        string order_num
+        datetime created_at
+        string customer_id
+        string product_id
+        number unit_price
+        int quantity
+        number discount
+        number total_amount
+    }
+    dim_customers {
+        string customer_id
+        string customer_cd
+        string surname
+        string name
+        string address
+        string city
+        string region
+        string country
+        string email
+        datetime valid_from
+        datetime valid_to
+    }
+    fact_orders ||--|{ dim_products: "of product"
+    dim_products {
+        string product_id
+        string product_cd
+        string name
+        string description
+        string category
+        number unit_price
+        datetime valid_from
+        datetime valid_to
+    }
+```
+## Source files
+**billing_orders_d_yyyyMMdd.csv**
+| Field name   | Type      |
+| ------------ | --------- |
+| order_num    | int       |
+| customer_cd  | string    |
+| product_cd   | string    |
+| unit_price   | number    |
+| quantity     | int       |
+| discount     | number    |
+| total_amount | number    |
+| created_at   | datetime  |
 
-dim_customer:
- - customer_id (PK)
- - customer_cd
- - surname
- - name
- - address
- - city
- - region
- - country
- - postal_code
- - email
+**customers_d_yyyyMMdd.csv**
+| Field name   | Type     |
+| ------------ | -------- |
+| customer_cd  | int      |
+| surname      | string   |
+| name         | string   |
+| address      | string   |
+| city         | string   |
+| region       | string   |
+| country      | string   |
+| postal_code  | string   |
+| email        | string   |
+| updated_at   | datetime |
 
-dim_product:
- - product_id (PK)
- - product_cd
- - name
- - description
- - category
- - price
+**products_d_yyyyMMdd.csv**
+| Field name    | Type     |
+| ------------- | ---------|
+| product_cd    | int      |
+| name          | string   |
+| description   | string   |
+| category      | string   |
+| unit_price    | number   |
+| updated_at    | datetime |
 
-dim_time:
- - time_id (PK)
- - year
- - month
- - day
- - hour
- - minute
- - second
+## Static solution diagram:
+![Static solution diagram](docs/Solution_diagram.drawio.png "a title")
 
+## Development
 
+### Local environment setup (on Ubuntu)
 
-(sudo docker stop dbt || exit 0) && \
-(sudo docker rm dbt || exit 0) \
-sudo docker run -t -d --name dbt dbt-ecommerce-dwh:latest
+**Prerequisite** Make sure you have python3.8 intalled on your system
 
-sudo docker exec -it dbt /bin/bash
-
-## How to prepare your virtual environment to make sure you are working with python >= 3.8
-
-(Make sure you have python3.8 intalled on your system)
+In a command shell, execute the following command in the root directory of the project:
 ```bash
 python3.8 -m venv .venv
 
 source .venv/bin/activate
 
 pip install --upgrade pip
-
-pip install --upgrade setuptools
-pip install --upgrade wheel
-
-```
-
-## Install dbt and other dependencies (see requirements.txt)
-```bash
 pip install -r requirements.txt
 ```
 
-## Make dbt install its own deps (see file packages.yml)
+Up to this point, dbt has been installed and is available as "dbt" from the command line.
+
+### Instruct dbt to install its dependencies (see file packages.yml)
 ```
 dbt deps
 ```
 
-## Create external tables
-```bash
-dbt run-operation stage_external_sources
-```
-
-## Command to put in container
+## Running and testing the transformations
 ```bash
 dbt run-operation stage_external_sources && \
     dbt snapshot && \
-    dbt run \
+    dbt run && \
     dbt test
 ```
