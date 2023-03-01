@@ -106,6 +106,6 @@ dbt deps
 ```bash
 dbt run-operation stage_external_sources && \
     dbt snapshot && \
-    dbt run \
+    dbt run && \
     dbt test
 ```
