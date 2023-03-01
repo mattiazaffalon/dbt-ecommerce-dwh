@@ -49,6 +49,15 @@ sudo docker run -t -d --name dbt dbt-ecommerce-dwh:latest
 
 sudo docker exec -it dbt /bin/bash
 
+## DWH ER model
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
+
 ## Static solution diagram:
 ![Static solution diagram](./Solution%20diagram.drawio.png "a title")
 
