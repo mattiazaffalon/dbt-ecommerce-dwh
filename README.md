@@ -41,7 +41,7 @@ erDiagram
 ```
 
 ## Static solution diagram:
-![Static solution diagram](./docs/Solution%20diagram.drawio.png "a title")
+![Static solution diagram](docs/Solution%20diagram.drawio.png "a title")
 
 ## Development
 
