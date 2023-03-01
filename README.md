@@ -41,40 +41,40 @@ erDiagram
 ```
 ## Source files
 **billing_orders_d_yyyyMMdd.csv**
-| Field name   | Type    |
-| ------------ | ------- |
-| order_num    | string  |
-| customer_cd  | string  |
-| product_cd   | string  |
-| unit_price   | string  |
-| quantity     | string  |
-| discount     | string  |
-| total_amount | string  |
-| created_at   | string  |
+| Field name   | Type      |
+| ------------ | --------- |
+| order_num    | int       |
+| customer_cd  | string    |
+| product_cd   | string    |
+| unit_price   | string    |
+| quantity     | string    |
+| discount     | string    |
+| total_amount | string    |
+| created_at   | datetime  |
 
 **customers_d_yyyyMMdd.csv**
-| Field name   | Type    |
-| ------------ | ------- |
-| customer_cd  | string  |
-| surname      | string  |
-| name         | string  |
-| address      | string  |
-| city         | string  |
-| region       | string  |
-| country      | string  |
-| postal_code  | string  |
-| email        | string  |
-| updated_at   | string  |
+| Field name   | Type     |
+| ------------ | -------- |
+| customer_cd  | int      |
+| surname      | string   |
+| name         | string   |
+| address      | string   |
+| city         | string   |
+| region       | string   |
+| country      | string   |
+| postal_code  | string   |
+| email        | string   |
+| updated_at   | datetime |
 
 **products_d_yyyyMMdd.csv**
-| Field name    | Type    |
-| ------------- | ------- |
-| product_cd    | string  |
-| name          | string  |
-| description   | string  |
-| category      | string  |
-| unit_price    | string  |
-| updated_at    | string  |
+| Field name    | Type     |
+| ------------- | ---------|
+| product_cd    | int      |
+| name          | string   |
+| description   | string   |
+| category      | string   |
+| unit_price    | string   |
+| updated_at    | datetime |
 
 ## Static solution diagram:
 ![Static solution diagram](docs/Solution_diagram.drawio.png "a title")
