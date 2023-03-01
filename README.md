@@ -48,7 +48,7 @@ erDiagram
 ```
 
 ## Static solution diagram:
-![Static solution diagram](./Solution%20diagram.drawio.png "a title")
+![Static solution diagram](./docs/Solution%20diagram.drawio.png "a title")
 
 ## How to prepare your virtual environment to make sure you are working with python >= 3.8
 
