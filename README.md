@@ -46,10 +46,10 @@ erDiagram
 | order_num    | int       |
 | customer_cd  | string    |
 | product_cd   | string    |
-| unit_price   | string    |
-| quantity     | string    |
-| discount     | string    |
-| total_amount | string    |
+| unit_price   | number    |
+| quantity     | int       |
+| discount     | number    |
+| total_amount | number    |
 | created_at   | datetime  |
 
 **customers_d_yyyyMMdd.csv**
@@ -73,7 +73,7 @@ erDiagram
 | name          | string   |
 | description   | string   |
 | category      | string   |
-| unit_price    | string   |
+| unit_price    | number   |
 | updated_at    | datetime |
 
 ## Static solution diagram:
