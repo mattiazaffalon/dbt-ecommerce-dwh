@@ -39,6 +39,42 @@ erDiagram
         datetime valid_to
     }
 ```
+## Source files
+**billing_orders_d_yyyyMMdd.csv**
+| Field name   | Type    |
+| ------------ | ------- |
+| order_num    | string  |
+| customer_cd  | string  |
+| product_cd   | string  |
+| unit_price   | string  |
+| quantity     | string  |
+| discount     | string  |
+| total_amount | string  |
+| created_at   | string  |
+
+**customers_d_yyyyMMdd.csv**
+| Field name   | Type    |
+| ------------ | ------- |
+| customer_cd  | string  |
+| surname      | string  |
+| name         | string  |
+| address      | string  |
+| city         | string  |
+| region       | string  |
+| country      | string  |
+| postal_code  | string  |
+| email        | string  |
+| updated_at   | string  |
+
+**products_d_yyyyMMdd.csv**
+| Field name    | Type    |
+| ------------- | ------- |
+| product_cd    | string  |
+| name          | string  |
+| description   | string  |
+| category      | string  |
+| unit_price    | string  |
+| updated_at    | string  |
 
 ## Static solution diagram:
 ![Static solution diagram](docs/Solution_diagram.drawio.png "a title")
