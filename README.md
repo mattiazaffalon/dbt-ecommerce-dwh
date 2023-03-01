@@ -1,12 +1,5 @@
 # dbt-ecommerce-dwh
 
-## Dimensional model
-(sudo docker stop dbt || exit 0) && \
-(sudo docker rm dbt || exit 0) \
-sudo docker run -t -d --name dbt dbt-ecommerce-dwh:latest
-
-sudo docker exec -it dbt /bin/bash
-
 ## DWH ER model
 ```mermaid
 erDiagram
@@ -50,37 +43,30 @@ erDiagram
 ## Static solution diagram:
 ![Static solution diagram](./docs/Solution%20diagram.drawio.png "a title")
 
-## How to prepare your virtual environment to make sure you are working with python >= 3.8
+## Development
 
-(Make sure you have python3.8 intalled on your system)
+### Local environment setup (on Ubuntu)
+
+**Prerequisite** Make sure you have python3.8 intalled on your system
+
+In a command shell, execute the following command in the root directory of the project:
 ```bash
 python3.8 -m venv .venv
 
 source .venv/bin/activate
 
 pip install --upgrade pip
-
-pip install --upgrade setuptools
-pip install --upgrade wheel
-
-```
-
-## Install dbt and other dependencies (see requirements.txt)
-```bash
 pip install -r requirements.txt
 ```
 
-## Make dbt install its own deps (see file packages.yml)
+Up to this point, dbt has been installed and is available as "dbt" from the command line.
+
+### Instruct dbt to install its dependencies (see file packages.yml)
 ```
 dbt deps
 ```
 
-## Create external tables
-```bash
-dbt run-operation stage_external_sources
-```
-
-## Command to put in container
+## Running and testing the transformations
 ```bash
 dbt run-operation stage_external_sources && \
     dbt snapshot && \
