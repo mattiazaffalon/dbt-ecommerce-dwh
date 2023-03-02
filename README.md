@@ -3,7 +3,7 @@
 ## DWH ER model
 ```mermaid
 erDiagram
-    fact_orders ||--|{ dim_customers: "from customer"
+    fact_orders }o--|| dim_customers: "from customer"
     fact_orders {
         string order_num
         datetime created_at
@@ -27,7 +27,7 @@ erDiagram
         datetime valid_from
         datetime valid_to
     }
-    fact_orders ||--|{ dim_products: "of product"
+    fact_orders }o--|| dim_products: "of product"
     dim_products {
         string product_id
         string product_cd
